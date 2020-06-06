@@ -113,12 +113,13 @@ public class CashierTerminal extends OrderingInterface implements OrderObserver,
         Date date = null;
         boolean dateGiven = false;
         while(!dateGiven){
-            String stringDate = input.next("\\d{4}\\-(0\\d|1[0|1|2])\\-(0\\d|1\\d|2\\d|3[0|1])");
             try {
+                String stringDate = input.next("\\d{4}\\-(0\\d|1[0|1|2])\\-(0\\d|1\\d|2\\d|3[0|1])");
                 date = java.sql.Date.valueOf(stringDate);
                 dateGiven = true;
             } catch (Exception e) {
                 System.out.println("Invalid date format entered, please try again.");
+                input.nextLine();
             }
         }
         
@@ -127,12 +128,13 @@ public class CashierTerminal extends OrderingInterface implements OrderObserver,
         Time time = null;
         boolean timeGiven = false;
         while(!timeGiven) {
-            String stringTime = input.next("(0\\d|1\\d|2[0|1|2|3]):([0|1|2|3|4|5]\\d):00");
             try {
+                String stringTime = input.next("(0\\d|1\\d|2[0|1|2|3]):([0|1|2|3|4|5]\\d):00");
                 time = java.sql.Time.valueOf(stringTime);
                 timeGiven = true;
             } catch (Exception e) {
                 System.out.println("Invalid time format entered, please try again.");
+                input.nextLine();
             }
         }
         
